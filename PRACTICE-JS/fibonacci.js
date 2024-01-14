@@ -19,3 +19,29 @@ function fibonacciSeries(num){
 }
 
 fibonacciSeries(9);
+
+//algorithm series
+
+
+function fibo(n){
+    let fib =[0 , 1];
+
+    for(let i=2;i<n ;i++){
+        fib[i]= fib[i-1] + fib[i-2];
+
+    }
+    return fib;
+}
+
+console.log(fibo(5))
+
+//fibonacci num
+
+function getFibonacciNum(n){
+    if( n < 2){
+        return n;
+    }
+    return getFibonacciNum(n -1) + getFibonacciNum( n -2);
+}
+
+console.log(getFibonacciNum(6))

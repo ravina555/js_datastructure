@@ -96,6 +96,47 @@ function LinkedList(){
         this.size--;
         return removeNode.value;
     }
+
+    this.removeValue=function(value){
+        if(this.isEmpty()){
+            return null;
+        }
+        if(this.head === value){
+            this.head = this.head.next;
+            this.size--;
+            return 'the node has been deleted';
+        }else{
+            let prev = this.head;
+            while(prev.next && prev.value !== value){
+                prev = prev.next;
+            }
+
+            if(prev.next){
+                const removeNode = prev.next;
+                prev.next = removeNode.next;
+                this.size--;
+                return value;
+            }
+        }
+        return null;
+    }
+
+    this.search=function(value){
+        if(this.isEmpty()){
+            return null;
+        }
+
+        let i=0;
+        let current= this.head;
+        while(current){
+            if(current.value ===  value){
+                return i;
+            }
+            current = current.next;
+            i++;
+        }
+        return -1;
+    }
     
 }
 
