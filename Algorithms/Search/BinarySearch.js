@@ -9,7 +9,7 @@ function findIndexByBinarySearch(arr , t){
 
         if(arr[middlePoint] === t){
             return middlePoint;
-        }else if(arr[middlePoint] < arr[right]){
+        }else if(arr[middlePoint] < t){
             left = middlePoint + 1
         }else{
             right = middlePoint - 1;
@@ -20,4 +20,4 @@ function findIndexByBinarySearch(arr , t){
     
 }
 
-console.log(findIndexByBinarySearch([-5 , 2 , 4, 6 ,20] , 6))
+console.log(findIndexByBinarySearch([6,4,6,7,8,9] , 6))
