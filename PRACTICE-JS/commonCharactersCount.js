@@ -1,0 +1,24 @@
+/* Q: Given two strings, find the number of common characters between them.
+      Example
+      For s1 = "aabcc" and s2 = "adcaa", the output should be commonCharacterCount(s1, s2) = 3.
+      Strings have 3 common characters - 2 "a"s and 1 "c". */
+
+
+      function commonCharacterCount(str1 , str2){
+        let count=0;
+        let obj = str1.split('');
+
+        for(let str of str2){
+            let idx= obj.findIndex((item)=>item === str);
+
+            if(idx >=0){
+                count++;
+                obj.splice(idx,1)
+            }
+        }
+
+        return count;
+      }
+
+
+      console.log(commonCharacterCount('aabcc','adcaa'))
