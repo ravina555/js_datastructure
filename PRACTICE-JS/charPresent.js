@@ -4,7 +4,6 @@ function characterPresent(arr){
     var first = arr[0].toLowerCase()
     var second = arr[1].toLowerCase()
     for (let i =0;i<=first.length;i++){
-      console.log(first[i],second[i]);
       if(first[i] !== second[i]){
         return false;
       }

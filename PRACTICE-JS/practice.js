@@ -1,88 +1,31 @@
-function Node(elem){
-    this.value = elem;
-    this.next = null;
-}
-
-function LinkedList(){
-    this.size = 0;
-    this.head = 0;
-    this.value=null;
-
-    this.isEmpty=function(){
-        return this.size === 0
+class hashTable{
+    constructor(size){
+        this.size = size;
+        this.table = [];
     }
 
-    this.prepend=function(elem){
-        let node = new Node(elem);
-        if(this.isEmpty()){
-            this.head = node;
-        }else{
-            node.next = this.head;
-            this.head = node;
+    getHashValue(key){
+        let total=0;
+        for(let i=0;i<key;i++){
+            total += key.charCodeAt(key[i])
         }
-
-        this.size++;
+        return total %this.size;
     }
 
-    this.append=function(elem){
-        let node = new Node(elem);
+    set(key , value){
+        let index = this.getHashValue(key);
+        let existingPair = this.table[index].findIndex((item)=> item === index);
 
-        if(this.isEmpty()){
-            this.head = node;
+        if(existingPair){
+            existingPair.value = value;
         }else{
-            let prev =this.head;
-            while(prev.next){
-                prev = prev.next
-            }
-            prev.next = node;
+            this.table[index].push({key , value})
         }
-        this.size++;
     }
 
-    this.print=function(){
-        if(this.isEmpty()){
-            console.log('list is empty')
-        }else{
-            let listValue ='';
-            let current = this.head;
-            while(current){
-                listValue+=`${current.value}`;
-                current = current.next;
-            }
+    get(key){
+        let index = this.getHashValue(key);
 
-            console.log(listValue)
-        }
-    }
-    this.insert=function(elem , index){
-        
-        if(index < 0 || index> this.size){
-            console.log('not applicable');
-        }
-
-        if(index === 0){
-            this.prepend(node);
-        }else{
-            let node = new Node(elem);
-            let prev = this.head;
-
-            for(let i=0;i<index-1;i++){
-                prev = prev.next;
-            }
-            node.next = prev.next;
-            prev.next = node;
-            
-
-            this.size++;
-        }
+        let findPair = this.table[index].find((pair)=> pair === index);
     }
 }
-
-let list = new LinkedList();
-list.append(10);
-list.append(20);
-list.prepend(30);
-
-list.insert(1,2)
-
-list.print();
-

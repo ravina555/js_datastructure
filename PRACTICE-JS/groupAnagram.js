@@ -35,7 +35,7 @@ let anagramArr=[];
         }
     }
 
-    return anagramArr
+    return  Object.values(anagramArr);
 };
 
 console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
