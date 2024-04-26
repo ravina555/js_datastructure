@@ -9,6 +9,7 @@ function depthFirstPrint(graph , source){
             stack.push(neighbour);
         }
     }
+    return stack;
 }
 
 //solve the same using recursive function
@@ -29,4 +30,5 @@ const graph={
     f:[]
 }
 
-depthFirstPrint(graph , a);
+console.log(depthFirstPrint(graph , 'a'));
+

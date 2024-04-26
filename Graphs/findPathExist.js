@@ -41,3 +41,13 @@ function hasPath(graph , source , dest){
     }
     return false;
 }
+
+const graph={
+    a:['b','c'],
+    b:['d'],
+    c:['e'],
+    d:['f'],
+    e:[],
+    f:[]
+}
+console.log(hasPath(graph ,'a' ,'e'))

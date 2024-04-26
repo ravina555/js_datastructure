@@ -15,7 +15,7 @@ function hasPath(graph , src , dest , visitedNode){
     }
     visitedNode.add(src);
     for(let neighbour of graph[src]){
-        if(hasPath(graph,neighbour,dest , visited) === true){
+        if(hasPath(graph,neighbour,dest , visitedNode) === true){
             return true;
         }
     }
@@ -47,3 +47,4 @@ const edges=[
     ['o','n']
 ]
 console.log(undirectedGraph(edges , 'j' , 'm'));
+
